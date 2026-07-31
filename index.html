@@ -68,3 +68,9 @@ SPIN NOW
 
 </body>
 </html>
+await addDoc(collection(db, "customers"), {
+    name: name,
+    mobile: mobile,
+    prize: prizes[random],
+    createdAt: new Date()
+});
