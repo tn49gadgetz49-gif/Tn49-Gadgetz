@@ -170,3 +170,41 @@ import {
   getDocs,
   addDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+spinBtn.addEventListener("click", async () => {
+
+  const name = nameInput.value.trim();
+  const mobile = mobileInput.value.trim();
+
+  if (name === "") {
+    alert("Please enter your name");
+    return;
+  }
+
+  if (mobile.length !== 10) {
+    alert("Please enter a valid 10 digit mobile number");
+    return;
+  }
+
+  // 👇 இந்த இடத்தில்தான் Validation Code-ஐ Paste செய்ய வேண்டும்
+
+  const q = query(
+    collection(db, "customers"),
+    where("mobile", "==", mobile)
+  );
+
+  const snapshot = await getDocs(q);
+
+  if (!snapshot.empty) {
+    alert("❌ This mobile number has already used its Lucky Spin.");
+    return;
+  }
+
+  // 👇 இதற்குப் பிறகுதான் Wheel Spin ஆக வேண்டும்
+
+  if (spinning) return;
+
+  spinning = true;
+
+  // ... உங்கள் Spin Code ...
+
+});
