@@ -69,3 +69,35 @@ if (spinBtn) {
 
   });
 }
+const wheel = document.getElementById("wheel");
+const spinBtn = document.getElementById("spinBtn");
+
+const prizes = [
+  "🎧 Bluetooth Neckband",
+  "🔌 USB Cable",
+  "🛡️ Tempered Glass",
+  "📱 Mobile Stand",
+  "🎧 Wireless Earbuds",
+  "😔 Better Luck Next Time"
+];
+
+let spinning = false;
+
+spinBtn.addEventListener("click", () => {
+
+  if (spinning) return;
+
+  spinning = true;
+
+  const random = Math.floor(Math.random() * prizes.length);
+
+  const angle = (360 * 6) + (random * 60);
+
+  wheel.style.transform = `rotate(${angle}deg)`;
+
+  setTimeout(() => {
+    alert("🎉 Congratulations!\n\n" + prizes[random]);
+    spinning = false;
+  }, 5000);
+
+});
