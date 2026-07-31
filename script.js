@@ -208,3 +208,7 @@ spinBtn.addEventListener("click", async () => {
   // ... உங்கள் Spin Code ...
 
 });
+const wheel = document.getElementById("wheel");
+const spinBtn = document.getElementById("spinBtn");
+
+// ... மீதமுள்ள code ...
