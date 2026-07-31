@@ -157,3 +157,9 @@ spinBtn.addEventListener("click", () => {
   }, 5000);
 
 });
+import { db } from "./firebase.js";
+
+import {
+  collection,
+  addDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
