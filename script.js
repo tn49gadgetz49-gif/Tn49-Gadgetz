@@ -101,3 +101,59 @@ spinBtn.addEventListener("click", () => {
   }, 5000);
 
 });
+const wheel = document.getElementById("wheel");
+const spinBtn = document.getElementById("spinBtn");
+const result = document.getElementById("result");
+
+const nameInput = document.getElementById("customerName");
+const mobileInput = document.getElementById("customerMobile");
+
+const prizes = [
+  "🎧 Bluetooth Neckband",
+  "🔌 USB Charging Cable",
+  "🛡️ Tempered Glass",
+  "📱 Mobile Stand",
+  "🎧 Wireless Earbuds",
+  "😔 Better Luck Next Time"
+];
+
+let spinning = false;
+
+spinBtn.addEventListener("click", () => {
+
+  const name = nameInput.value.trim();
+  const mobile = mobileInput.value.trim();
+
+  if (name === "") {
+    alert("Please enter your name");
+    return;
+  }
+
+  if (mobile.length !== 10) {
+    alert("Please enter a valid 10 digit mobile number");
+    return;
+  }
+
+  if (spinning) return;
+
+  spinning = true;
+
+  spinBtn.disabled = true;
+
+  const random = Math.floor(Math.random() * prizes.length);
+
+  const rotation = 360 * 5 + random * 60;
+
+  wheel.style.transform = `rotate(${rotation}deg)`;
+
+  setTimeout(() => {
+
+    result.innerHTML =
+      `<h2>🎉 Congratulations!</h2><br>${prizes[random]}`;
+
+    spinBtn.disabled = false;
+    spinning = false;
+
+  }, 5000);
+
+});
