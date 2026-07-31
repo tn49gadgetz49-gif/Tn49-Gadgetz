@@ -1,0 +1,38 @@
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#111;
+    color:white;
+    text-align:center;
+}
+
+.container{
+    padding:20px;
+}
+
+#wheel{
+    width:320px;
+    height:320px;
+    border-radius:50%;
+    border:8px solid #FFD700;
+    margin:20px auto;
+    background:conic-gradient(
+        #FFD700 0deg 60deg,
+        #ff4444 60deg 120deg,
+        #44ff44 120deg 180deg,
+        #4488ff 180deg 240deg,
+        #ff66ff 240deg 300deg,
+        #ffaa00 300deg 360deg
+    );
+    transition:transform 5s ease-out;
+}
+
+button{
+    background:#FFD700;
+    color:black;
+    border:none;
+    padding:15px 35px;
+    font-size:20px;
+    border-radius:10px;
+    cursor:pointer;
+}
